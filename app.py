@@ -1,9 +1,3 @@
-# =============================================================================
-# STREAMLIT BASICS - All Core Concepts Covered
-# Run with: streamlit run streamlit_basics.py
-# Install with: pip install streamlit
-# =============================================================================
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -12,27 +6,9 @@ from apiconfig import ai_help
 import ast
 import json
 import io
-# from analytics import uploaded_df, csv_file,total_orders,avg_ov, avg_can, ord_del, ret_rate
-# st.image(
-#     "Gemini_Generated_Image_bhb0khbhb0khbhb0.png",
-#     width=100
-# )
-# st.title("CALCUTTA CONSULTING GROUP", text_alignment="center")
-# st.title("")
-# st.image(
-#     "Gemini_Generated_Image_7k58967k58967k58.png",
-#     use_container_width=True
-# )
-
-# csv_file = "orders.csv"
-# uploaded_df = pd.read_csv(csv_file)
-
-# =============================================================================
-# 1. PAGE CONFIGURATION (must be the first Streamlit command)
-# =============================================================================
 
 st.set_page_config(
-    page_title="Calcutta Consulting Group",
+    page_title="Calcutta Analytics",
     page_icon="🟩",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -77,24 +53,21 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 3. Professional Header Section (Logo on left, Title text beautifully aligned beside it)
 header_col1, header_col2 = st.columns([1, 5])
 
 with header_col1:
-    # Replace '9251755389922777815.jpeg' with your local logo path if needed
-    st.image("media/logo.png", width=120)
+    st.image("media/logo2.png", width=120)
 
 with header_col2:
-    st.markdown('<h1 class="corporate-title">CALCUTTA CONSULTING GROUP</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="corporate-title">Calcutta Analytics</h1>', unsafe_allow_html=True)
     st.markdown('<p class="corporate-tagline">Strategy. Analytics. Transformation.</p>', unsafe_allow_html=True)
 
 # Clean structural divider
 st.markdown("---")
 
-# 4. Main Hero Image Section
-# Replace 'watermarked_img_14851377396885550443.png' with your preferred local home background image path
+
 st.markdown('<div class="hero-container">', unsafe_allow_html=True)
-st.image("media/main.png", use_container_width=True)
+# st.image("media/main.png", use_container_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
@@ -293,10 +266,6 @@ if uploaded:
 
             # =============bar chart ends============================
 
-            # column = st.selectbox("Choose a column", numeric_cols)
-            # st.line_chart(uploaded_df[column])
-            #  excluded from no clear sense
-            # =======================================================
             corr = st.session_state.main_df.select_dtypes(include="number").corr()
             summary = st.session_state.main_df.describe(include="all").to_string()
 
