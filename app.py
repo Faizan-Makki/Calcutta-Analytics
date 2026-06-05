@@ -82,7 +82,7 @@ header_col1, header_col2 = st.columns([1, 5])
 
 with header_col1:
     # Replace '9251755389922777815.jpeg' with your local logo path if needed
-    st.image("media\logo.png", width=120)
+    st.image("media/logo.png", width=120)
 
 with header_col2:
     st.markdown('<h1 class="corporate-title">CALCUTTA CONSULTING GROUP</h1>', unsafe_allow_html=True)
@@ -94,7 +94,7 @@ st.markdown("---")
 # 4. Main Hero Image Section
 # Replace 'watermarked_img_14851377396885550443.png' with your preferred local home background image path
 st.markdown('<div class="hero-container">', unsafe_allow_html=True)
-st.image("media\main.png", use_container_width=True)
+st.image("media/main.png", use_container_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
