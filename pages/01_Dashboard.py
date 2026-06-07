@@ -6,7 +6,7 @@ import pandas as pd
 import time
 from components.upload import show_upload
 from services.data_loader import load_dataframe
-
+from components.footer import show_footer
 
 if "main_df" not in st.session_state:
     st.warning("Please upload your data")
@@ -168,3 +168,5 @@ insights = ai_help(
 )
 st.subheader("Business Insights:")
 st.write(insights)
+
+show_footer()

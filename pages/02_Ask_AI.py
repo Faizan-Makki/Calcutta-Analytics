@@ -2,6 +2,7 @@ import streamlit as st
 from services.ai_service import ai_help
 from components.upload import show_upload
 from services.data_loader import load_dataframe
+from components.footer import show_footer
 
 st.header("Ask a question about your data")
 
@@ -38,3 +39,5 @@ if question:
     answer = ai_help(prompt3)
 
     st.write(answer)
+
+show_footer()

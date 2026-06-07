@@ -1,6 +1,6 @@
 import streamlit as st
 from services.ai_service import ai_help
-
+from components.footer import show_footer
 
 st.header("Generate pandas code")
 user_request = st.text_input("Describe your problem")
@@ -59,3 +59,5 @@ if user_request:
     """
     code = ai_help(prompt4)
     st.code(code, language="python")
+
+show_footer()
