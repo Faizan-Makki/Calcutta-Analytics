@@ -17,3 +17,7 @@ csv_files/
 test.py
 test.ipynb
 add_info.txt
+app_backup.py
+db.py
+home_backup.py
+page2.py
