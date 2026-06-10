@@ -1,8 +1,22 @@
 import streamlit as st
 from services.ai_service import ai_help
 from components.footer import show_footer
+from components.upload import show_upload
+from services.data_loader import load_dataframe
 
 st.header("Generate pandas code")
+if "main_df" not in st.session_state:
+    st.warning("Please upload your data")
+    uploaded_file = show_upload()
+    if uploaded_file:
+        st.success(f"Uploaded: {uploaded_file.name} ({uploaded_file.size} bytes)")
+        uploaded_df = load_dataframe(uploaded_file)
+        st.session_state.main_df = uploaded_df
+        st.session_state.data_source = "csv"
+        #st.session_state.main_df = st.session_state.main_df
+        st.rerun()
+    st.stop()
+    
 user_request = st.text_input("Describe your problem")
 if user_request:
     prompt4 = f"""

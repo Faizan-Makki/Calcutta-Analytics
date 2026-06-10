@@ -64,10 +64,14 @@ with col4:
 st.divider()
 st.subheader("📂 Upload Dataset")
 uploaded_file = show_upload()
+st.subheader("or")
+if st.button("Connect to database"):
+    st.switch_page("pages/05_Database.py")
 if uploaded_file:
     st.success(f"Uploaded: {uploaded_file.name} ({uploaded_file.size} bytes)")
     uploaded_df = load_dataframe(uploaded_file)
     st.session_state.main_df = uploaded_df
+    st.session_state.data_source = "csv"
     st.switch_page("pages/01_Dashboard.py")
     # st.write(uploaded_df)
 
@@ -76,8 +80,8 @@ st.divider()
 st.subheader("⚡ Analytics Workflow")
 
 st.markdown("""
-**1. Upload Data**  
-Import CSV, Excel or TXT files.
+**1. Load Your Data**  
+Upload CSV, Excel, or TXT files, or connect directly to your SQL database.
 
 **2. Clean Data**  
 Fix missing values, duplicates and datatypes.
