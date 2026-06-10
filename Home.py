@@ -72,6 +72,7 @@ if uploaded_file:
     uploaded_df = load_dataframe(uploaded_file)
     st.session_state.main_df = uploaded_df
     st.session_state.data_source = "csv"
+    st.session_state.updated_cols = False
     st.switch_page("pages/01_Dashboard.py")
     # st.write(uploaded_df)
 

@@ -14,13 +14,15 @@ if "main_df" not in st.session_state:
         uploaded_df = load_dataframe(uploaded_file)
         st.session_state.main_df = uploaded_df
         st.session_state.data_source = "csv"
+        st.session_state.updated_cols = False
         #st.session_state.main_df = st.session_state.main_df
         st.rerun()
     st.stop()
 
 
 st.header("Dataset Summary", text_alignment="center")
-data_summ()
+if st.session_state.updated_cols == False:
+    data_summ()
 
 st.subheader("Missing Values")
 missings()

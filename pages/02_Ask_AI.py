@@ -13,6 +13,9 @@ if "main_df" not in st.session_state:
         st.success(f"Uploaded: {uploaded_file.name} ({uploaded_file.size} bytes)")
         uploaded_df = load_dataframe(uploaded_file)
         st.session_state.main_df = uploaded_df
+        st.session_state.data_source = "csv"
+        st.session_state.updated_cols = False
+
         # the_df = st.session_state.main_df
         st.rerun()
     st.stop()

@@ -69,6 +69,7 @@ def data_summ():
             ai_df.info(buf=buffer)
             st.text(buffer.getvalue())
     if st.button("Continue with AI suggested Column types."):
+        st.session_state.updated_cols = True
         st.session_state.main_df = ai_df
         st.success("Column type updated")
         

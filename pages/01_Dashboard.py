@@ -21,6 +21,7 @@ if "main_df" not in st.session_state:
         uploaded_df = load_dataframe(uploaded_file)
         st.session_state.main_df = uploaded_df
         st.session_state.data_source = "csv"
+        st.session_state.updated_cols = False
         # the_df = st.session_state.main_df
         st.rerun()
     st.stop()
@@ -28,8 +29,8 @@ if "main_df" not in st.session_state:
 df = st.session_state.main_df
 
 st.header("Dataset Summary", text_alignment="center")
-if st.session_state.data_source != "database":
-    data_summ()
+if st.session_state.data_source != "database" and st.session_state.updated_cols == False:
+    data_summ()     
 
 
 # st.write(st.session_state.main_df.describe())

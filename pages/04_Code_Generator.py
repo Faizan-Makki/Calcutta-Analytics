@@ -13,10 +13,11 @@ if "main_df" not in st.session_state:
         uploaded_df = load_dataframe(uploaded_file)
         st.session_state.main_df = uploaded_df
         st.session_state.data_source = "csv"
+        st.session_state.updated_cols = False
         #st.session_state.main_df = st.session_state.main_df
         st.rerun()
     st.stop()
-    
+
 user_request = st.text_input("Describe your problem")
 if user_request:
     prompt4 = f"""
