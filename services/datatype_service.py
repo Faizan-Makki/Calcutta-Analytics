@@ -43,14 +43,17 @@ def data_summ():
                 Dataset sample:
                 {sample}
                 """
-
-            ai_df = st.session_state.main_df.copy()
-            ai_response = ai_help(prompt1)
-            # st.text(ai_response) #debug
-            dtype_map = json.loads(ai_response)
-
-            for col, dtype in dtype_map.items():
-                try:
+            try:
+                ai_df = st.session_state.main_df.copy()
+                ai_response = ai_help(prompt1)
+                # st.text(ai_response) #debug
+                dtype_map = json.loads(ai_response)
+            except json.JSONDecodeError:
+                st.error(
+                    "AI returned an invalid response. Please try again."
+                )
+            try:
+                for col, dtype in dtype_map.items():
                     if dtype == "datetime64[ns]":
                         ai_df[col] = pd.to_datetime(ai_df[col], errors="coerce")
 
@@ -63,8 +66,8 @@ def data_summ():
                     else:
                         ai_df[col] = ai_df[col].astype(dtype)
 
-                except Exception as e:
-                    st.error(f"{col}: {e}")
+            except Exception as e:
+                    st.error("An unexpected error occurred. Please try again later.")
             buffer = io.StringIO()
             ai_df.info(buf=buffer)
             st.text(buffer.getvalue())
