@@ -1,8 +1,8 @@
 import pandas as pd
-import sqlite3
+# import sqlite3
 import pyodbc
-import pymysql
-import psycopg2
+# import pymysql
+# import psycopg2
 
 def connect_sql_server(host, database, username=None, password=None):
     conn_str = (
@@ -17,24 +17,24 @@ def connect_sql_server(host, database, username=None, password=None):
     return pyodbc.connect(conn_str)
 
 
-def connect_mysql(host, database, username, password):
-    return pymysql.connect(
-        host=host,
-        user=username,
-        password=password,
-        database=database
-    )
+# def connect_mysql(host, database, username, password):
+#     return pymysql.connect(
+#         host=host,
+#         user=username,
+#         password=password,
+#         database=database
+#     )
 
-def connect_postgres(host, database, username, password):
-    return psycopg2.connect(
-        host=host,
-        database=database,
-        user=username,
-        password=password
-    )
+# def connect_postgres(host, database, username, password):
+#     return psycopg2.connect(
+#         host=host,
+#         database=database,
+#         user=username,
+#         password=password
+#     )
 
-def connect_sqlite(db_file):
-    return sqlite3.connect(db_file)
+# def connect_sqlite(db_file):
+#     return sqlite3.connect(db_file)
 
 
 def get_tables(conn):
