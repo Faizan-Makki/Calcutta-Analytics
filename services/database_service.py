@@ -10,8 +10,8 @@ def connect_sql_server(host, database, username=None, password=None):
         f"SERVER={host};"
         f"DATABASE={database};"
         f"Trusted_connection=Yes;"
-        # f"UID={username};"
-        # f"PWD={password};"
+        f"UID={username};"
+        f"PWD={password};"
     )
 
     return pyodbc.connect(conn_str)
