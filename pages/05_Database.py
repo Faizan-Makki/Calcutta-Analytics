@@ -4,7 +4,7 @@ from services.database_service import connect_sql_server, get_tables
 import pandas as pd
 
 st.info(
-    "Currently, only local Microsoft SQL Server instances are supported. "
+    "Currently, only Microsoft SQL Server instances are supported. "
     "Please enter the server name of your local SQL Server installation "
     "(e.g., localhost, .\\SQLEXPRESS, or YOUR-PC\\SQLEXPRESS). "
     "SQL Server authentication and remote servers are not supported yet."
